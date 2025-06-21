@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // cara 1
+        // menampilkan kode output langsung ke browser
+        alert("Test Javascript")
+
+        // cara ke 2 menggunakan console
+        console.log("test javascript")
+
+        /*
+        test 
+        komentar
+        multi line
+        */
+
+        // A Tipe Data Javascript
+        // A1 Variabel, untuk menyimpan data
+
+        // data nama / teks -> tipe data string
+        let namaDepan = "Rahmat"
+        alert(namaDepan)
+
+
+        // tipe data angka
+        let angkaSatu = 1
+        console.log(angkaSatu)
+
+        // tipe data boolean
+        let benar = true
+        let salah = false
+
+        console.log(benar)
+        console.log(salah)
+
+        // tipe data array
+        let array1 = ["budi", "ade", "eko", 1, 2, 3, [
+                "eka", "ayu",
+                [1,2,3,4]
+            ]
+        ]
+        console.log(array1)
+        console.log(array1[2])
+        console.log(array1[6][0])
+        console.log(array1[6][2][3])
+
+        // object, key & value
+        let biodataSaya = {
+            nama : "Rahmat Budi",
+            alamat : "Makassar",
+            no_telp: 62876566126162,
+            sekolah : {
+                sd: "sd 1 makassar",
+                smp : "smp 1 makassar",
+                sma : "sma 2 makassar"
+            },
+            hobi: ["memancing", "makan", "traveling"],
+        }
+        console.log(biodataSaya.hobi[2])
+
+        // operasi matematika
+        // penjumlahan
+        let angka1 = 5
+        let angka2 = 6
+
+        let nilaiPenjumlahan = angka1 + angka2
+        console.log(nilaiPenjumlahan)
+
+        // tanda + menggabungkan string
+        let namaDepan1 = "Rahmat"
+        let namaDepan2 = "Budi"
+
+        console.log(namaDepan1 + namaDepan2)
+
+        // kondisi / conditional formating
+
+        // B. Kondisi
+
+        /** 
+         * - if (cuma tampil jika kondisi terpenuhi / benar)
+         * - else if(jika if tidak terpenuhi, maka cek menggunakan ini)
+         * - else (kondisi tidak terpenuhi)
+         * 
+         * casting
+         * 
+         * - pengkondisian : 
+         *  < (lebih kecil),
+         * > (lebih besar)
+         * = memberikan nilai,
+         * <=, (lebih kecil / sama dengan)
+         * >=, (lebih besar / sama dengan)
+         * == (nilai nya sama dengan)
+         * === (nilainya sama dengan & tipe datanya sama) 
+         * <==
+         * - operator
+         * - gerbang logika
+        
+        */
+        // kondisi yang akan di cek
+        if(angka1 > angka2){
+            // apa yang dilakukan setelah kondisi memenuhi syarat
+            console.log(angka1 + angka2)
+            console.log("Angka 1 Lebih Besar Dari Angka 2")
+        } else if(angka1 == angka2){
+            // == (dua sama dengan, untuk mengecek apakah nilai nya sama atau tidak)
+            console.log("nilai nya sama")
+        } else{
+            // jika kondisinya tidak memenuhi syarat, maka block kode yang ini akan di proses
+            console.log("Angka 1 Lebih Kecil")
+        }
+        
+        // perbedaan let & const
+
+        // let nilainya bisa di modifikasi
+        let variabel1 = 1
+        variabel1 = 2
+
+        // setelah di buat, nilainya tidak bisa diubah lagi
+        // const variabel2 = 3
+        // variabel2 = 4
+
+        const variabel4 = {
+            nama : "budi"
+        }
+
+        console.log(variabel4)
+        variabel4.nama = "Bambang"
+        console.log(variabel4)
+
+        // switch case merupakan alternatif dari if else
+        // nama hari: Senin 
+        let hariIni = "test"
+        switch(hariIni){
+            case "Senin":
+            case "Selasa":
+            case "Rabu":
+            case "Kamis":
+            case "Jumat":
+                console.log("kerja")
+                break
+            case "Sabtu":
+            case "Minggu":
+                console.log("libur")
+                break
+            default:
+                console.log("bukan nama hari")
+        }
+
+
+        // function 
+        function gabungNama(){
+            let namaDepan = "Rahmat"
+            let namaBelakang = "Gunawan"
+
+            // menampilkan nilai function menggunakan return
+            return namaDepan + " " + namaBelakang
+        }
+
+        console.log(gabungNama())
+    
+
+    </script>
+</body>
+</html>
