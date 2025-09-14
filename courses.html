@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses - Makassar Coding</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .sidebar {
+            background-color: #A8DADC;
+            color: #1D3557;
+            height: 100vh;
+            position: fixed;
+            overflow-y: auto;
+        }
+        .main-content {
+            margin-left: 250px;
+        }
+        .nav-link {
+            color: #1D3557;
+        }
+        .nav-link:hover, .nav-link.active {
+            background-color: #457b9d;
+            color: white !important;
+        }
+        .course-card {
+            transition: transform 0.3s;
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        .course-image {
+            height: 150px;
+            object-fit: cover;
+        }
+        .progress-small {
+            height: 8px;
+        }
+        .locked-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar col-md-3 col-lg-2 d-md-block">
+        <div class="p-4">
+            <h2 class="mb-4"><i class="bi bi-code-square"></i> Makassar Coding</h2>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" href="dashboard.html">
+                        <i class="bi bi-speedometer2 me-2"></i> Dashboard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="bi bi-person me-2"></i> Profile
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">
+                        <i class="bi bi-book me-2"></i> Courses
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="bi bi-graph-up me-2"></i> Progress
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="bi bi-gear me-2"></i> Settings
+                    </a>
+                </li>
+                <li class="nav-item mt-5">
+                    <a class="nav-link" href="#" id="logoutBtn">
+                        <i class="bi bi-box-arrow-right me-2"></i> Logout
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <!-- Header -->
+        <header class="d-flex justify-content-between align-items-center py-3 mb-4 border-bottom">
+            <h1 class="h2">Courses</h1>
+            <div class="d-flex align-items-center">
+                <span id="welcomeUser" class="me-3"></span>
+                <i class="bi bi-person-circle" style="font-size: 2rem;"></i>
+            </div>
+        </header>
+
+        <!-- Filter and Search -->
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-search"></i></span>
+                    <input type="text" class="form-control" placeholder="Search courses...">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <select class="form-select">
+                    <option selected>All Categories</option>
+                    <option>Web Development</option>
+                    <option>Mobile Development</option>
+                    <option>Data Science</option>
+                    <option>UI/UX Design</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Courses Grid -->
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            <!-- Course 1 -->
+            <div class="col">
+                <div class="card course-card h-100">
+                    <img src="img.jpg" class="card-img-top course-image" alt="HTML Course">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">HTML Fundamentals</h5>
+                        <p class="card-text flex-grow-1">Learn the basics of HTML to create structured web pages.</p>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <small class="text-muted">Beginner</small>
+                            <span class="badge bg-success">Free</span>
+                        </div>
+                        <div class="progress mb-2 progress-small">
+                            <div class="progress-bar" role="progressbar" style="width: 100%"></div>
+                        </div>
+                        <small class="text-muted">100% Complete</small>
+                        <button class="btn btn-primary mt-2" onclick="accessCourse('html')">Continue Learning</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course 2 -->
+            <div class="col">
+                <div class="card course-card h-100">
+                    <img src="img.jpg" class="card-img-top course-image" alt="CSS Course">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">CSS Styling</h5>
+                        <p class="card-text flex-grow-1">Master CSS to create beautiful and responsive websites.</p>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <small class="text-muted">Beginner</small>
+                            <span class="badge bg-success">Free</span>
+                        </div>
+                        <div class="progress mb-2 progress-small">
+                            <div class="progress-bar" role="progressbar" style="width: 65%"></div>
+                        </div>
+                        <small class="text-muted">65% Complete</small>
+                        <button class="btn btn-primary mt-2" onclick="accessCourse('css')">Continue Learning</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course 3 -->
+            <div class="col">
+                <div class="card course-card h-100">
+                    <img src="img.jpg" class="card-img-top course-image" alt="JavaScript Course">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">JavaScript Essentials</h5>
+                        <p class="card-text flex-grow-1">Add interactivity to your websites with JavaScript.</p>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <small class="text-muted">Intermediate</small>
+                            <span class="badge bg-warning">Premium</span>
+                        </div>
+                        <div class="progress mb-2 progress-small">
+                            <div class="progress-bar" role="progressbar" style="width: 0%"></div>
+                        </div>
+                        <small class="text-muted">0% Complete</small>
+                        <button class="btn btn-primary mt-2" onclick="accessCourse('js')">Start Learning</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course 4 -->
+            <div class="col">
+                <div class="card course-card h-100">
+                    <img src="img.jpg" class="card-img-top course-image" alt="Bootstrap Course">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Bootstrap Framework</h5>
+                        <p class="card-text flex-grow-1">Build responsive websites quickly with Bootstrap.</p>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <small class="text-muted">Intermediate</small>
+                            <span class="badge bg-success">Free</span>
+                        </div>
+                        <div class="progress mb-2 progress-small">
+                            <div class="progress-bar" role="progressbar" style="width: 0%"></div>
+                        </div>
+                        <small class="text-muted">0% Complete</small>
+                        <button class="btn btn-primary mt-2" onclick="accessCourse('bootstrap')">Start Learning</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course 5 -->
+            <div class="col">
+                <div class="card course-card h-100">
+                    <img src="img.jpg" class="card-img-top course-image" alt="React Course">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">React Development</h5>
+                        <p class="card-text flex-grow-1">Build modern web applications with React.</p>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <small class="text-muted">Advanced</small>
+                            <span class="badge bg-warning">Premium</span>
+                        </div>
+                        <div class="position-relative">
+                            <div class="progress mb-2 progress-small">
+                                <div class="progress-bar" role="progressbar" style="width: 0%"></div>
+                            </div>
+                            <div class="locked-overlay">
+                                <div class="text-center text-white">
+                                    <i class="bi bi-lock-fill fs-3"></i>
+                                    <p class="mb-0">Premium Content</p>
+                                </div>
+                            </div>
+                        </div>
+                        <small class="text-muted">Locked</small>
+                        <button class="btn btn-secondary mt-2" disabled>Unlock Course</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course 6 -->
+            <div class="col">
+                <div class="card course-card h-100">
+                    <img src="img.jpg" class="card-img-top course-image" alt="Node.js Course">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Node.js Backend</h5>
+                        <p class="card-text flex-grow-1">Create server-side applications with Node.js.</p>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <small class="text-muted">Advanced</small>
+                            <span class="badge bg-warning">Premium</span>
+                        </div>
+                        <div class="position-relative">
+                            <div class="progress mb-2 progress-small">
+                                <div class="progress-bar" role="progressbar" style="width: 0%"></div>
+                            </div>
+                            <div class="locked-overlay">
+                                <div class="text-center text-white">
+                                    <i class="bi bi-lock-fill fs-3"></i>
+                                    <p class="mb-0">Premium Content</p>
+                                </div>
+                            </div>
+                        </div>
+                        <small class="text-muted">Locked</small>
+                        <button class="btn btn-secondary mt-2" disabled>Unlock Course</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Check if user is logged in
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            
+            if (!currentUser) {
+                // Redirect to login page if not logged in
+                window.location.href = 'login.html';
+                return;
+            }
+            
+            // Display user information
+            document.getElementById('welcomeUser').textContent = currentUser.name;
+            
+            // Handle logout
+            document.getElementById('logoutBtn').addEventListener('click', function(e) {
+                e.preventDefault();
+                // Remove current user from localStorage
+                localStorage.removeItem('currentUser');
+                // Redirect to login page
+                window.location.href = 'login.html';
+            });
+        });
+
+        // Function to access a course
+        function accessCourse(courseId) {
+            // In a real application, this would redirect to the course content
+            // For this demo, we'll just show an alert
+            let courseName = "";
+            switch(courseId) {
+                case 'html':
+                    courseName = "HTML Fundamentals";
+                    break;
+                case 'css':
+                    courseName = "CSS Styling";
+                    break;
+                case 'js':
+                    courseName = "JavaScript Essentials";
+                    break;
+                case 'bootstrap':
+                    courseName = "Bootstrap Framework";
+                    break;
+                default:
+                    courseName = "the selected";
+            }
+            
+            alert(`Accessing ${courseName} course. In a real application, this would take you to the course content.`);
+        }
+    </script>
+</body>
+</html>
