@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Progress - Documentation</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Font Awesome untuk ikon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Custom Styles -->
+  <style>
+    :root {
+      --bs-primary: #7B00FF;
+      --bs-body-color: #e0e0e0;
+      --bs-bg-color: #121212;
+      --bs-sidebar-bg: #1e1e1e;
+      --bs-border-color: #333;
+    }
+
+    body {
+      background-color: var(--bs-bg-color) !important;
+      color: var(--bs-body-color) !important;
+      font-family: "Segoe UI", system-ui, sans-serif;
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: var(--bs-primary) !important;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .navbar-brand .logo {
+      width: 40px;
+      height: 40px;
+      background-color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: var(--bs-primary);
+      font-size: 20px;
+      margin-right: 8px;
+    }
+
+    .nav-link {
+      color: white !important;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: #f0f0ff !important;
+    }
+
+    /* Search bar */
+    .search-input {
+      border-radius: 50px !important;
+      border: none !important;
+      background-color: rgba(255, 255, 255, 0.1) !important;
+      color: white !important;
+      padding: 0.5rem 1rem !important;
+    }
+
+    .search-input::placeholder {
+      color: rgba(255, 255, 255, 0.6) !important;
+    }
+
+    /* Sidebar kiri */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 200px;
+      background-color: var(--bs-sidebar-bg);
+      padding: 1rem 0.5rem;
+      overflow-y: auto;
+      z-index: 1000;
+    }
+
+    .sidebar a {
+      color: var(--bs-body-color) !important;
+      text-decoration: none;
+      display: block;
+      padding: 0.3rem 1rem;
+      border-radius: 0.3rem;
+      transition: background-color 0.2s, color 0.2s;
+    }
+
+    .sidebar a:hover {
+      background-color: rgba(123, 0, 255, 0.1);
+      color: var(--bs-primary) !important;
+    }
+
+    /* Main content */
+    .main-content {
+      margin-left: 200px;
+      margin-right: 300px;
+      padding: 2rem;
+    }
+
+    /* Right sidebar */
+    .right-sidebar {
+      position: fixed;
+      top: 100px;
+      right: 0;
+      width: 300px;
+      background-color: var(--bs-sidebar-bg);
+      padding: 1rem;
+      border-left: 1px solid var(--bs-border-color);
+      overflow-y: auto;
+      height: calc(100vh - 100px);
+      z-index: 999;
+    }
+
+    .right-sidebar h5 {
+      color: white;
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+
+    .right-sidebar ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .right-sidebar a {
+      color: var(--bs-body-color);
+      text-decoration: none;
+      display: block;
+      padding: 0.25rem 0;
+      font-size: 0.9rem;
+    }
+
+    .right-sidebar a:hover {
+      color: var(--bs-primary);
+    }
+
+    /* Alert */
+    .alert-custom {
+      background-color: #002b36;
+      border-color: #073642;
+      color: #839496;
+      border: 1px solid;
+      padding: 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .alert-custom a {
+      color: var(--bs-primary);
+    }
+
+    /* Dropdown toggle */
+    .dropdown-toggle {
+      border-color: rgba(255, 255, 255, 0.2);
+      color: white;
+      background-color: transparent;
+    }
+
+    .dropdown-toggle:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 5rem;
+      padding: 2rem;
+      text-align: center;
+      color: #666;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <span class="logo">B</span>
+        Docs
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="#">Docs</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Examples</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Icons</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
+        </ul>
+
+        <form class="d-flex me-3" role="search">
+          <input class="form-control search-input" type="search" placeholder="Search… (Ctrl+K)" aria-label="Search">
+        </form>
+
+        <div class="d-flex align-items-center gap-2">
+          <a href="#" class="text-white"><i class="fab fa-github"></i></a>
+          <a href="#" class="text-white"><i class="fab fa-x-twitter"></i></a>
+          <a href="#" class="text-white"><i class="fas fa-circle"></i></a>
+          
+          <div class="dropdown">
+            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown">
+              v5.3
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="#">v5.3</a></li>
+              <li><a class="dropdown-item" href="#">v5.2</a></li>
+            </ul>
+          </div>
+
+          <div class="dropdown">
+            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown">
+              <i class="fas fa-moon"></i>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="#"><i class="fas fa-sun me-2"></i>Light Mode</a></li>
+              <li><a class="dropdown-item" href="#"><i class="fas fa-moon me-2"></i>Dark Mode</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Sidebar Kiri -->
+  <aside class="sidebar">
+    <ul class="list-unstyled">
+      <li><a href="#">Borders</a></li>
+      <li><a href="#">Colors</a></li>
+      <li><a href="#">Display</a></li>
+      <li><a href="#">Flex</a></li>
+      <li><a href="#">Float</a></li>
+      <li><a href="#">Interactions</a></li>
+      <li><a href="#">Link</a></li>
+      <li><a href="#">Object fit</a></li>
+      <li><a href="#">Opacity</a></li>
+      <li><a href="#">Overflow</a></li>
+      <li><a href="#">Position</a></li>
+      <li><a href="#">Shadows</a></li>
+      <li><a href="#">Sizing</a></li>
+      <li><a href="#">Spacing</a></li>
+      <li><a href="#">Text</a></li>
+    </ul>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <h1>Progress</h1>
+    <p class="lead">
+      Documentation and examples for using Bootstrap custom progress bars featuring support for stacked bars, animated backgrounds, and text labels.
+    </p>
+
+    <div class="alert alert-custom">
+      <strong>New markup in v5.3.0</strong> — We've deprecated the previous HTML structure for progress bars and replaced it with a more accessible one. The previous structure will continue to work until v6. 
+      <a href="#">See what's changed in our migration guide.</a>
+    </div>
+
+    <h2>How it works</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl eget ultricies ultricies, nisl nisl ultricies nisl, eget ultricies nisl nisl eget ultricies.</p>
+
+    <h3>Bar sizing</h3>
+    <p>You can set the width of each progress bar using inline styles or utility classes.</p>
+
+    <div class="mb-4">
+      <div class="progress">
+        <div class="progress-bar" style="width: 25%"></div>
+      </div>
+    </div>
+
+    <h3>Multiple bars</h3>
+    <p>You can stack multiple progress bars inside the same container.</p>
+    <div class="mb-4">
+      <div class="progress">
+        <div class="progress-bar bg-success" style="width: 35%"></div>
+        <div class="progress-bar bg-info" style="width: 20%"></div>
+        <div class="progress-bar bg-warning" style="width: 10%"></div>
+      </div>
+    </div>
+
+    <h3>Label</h3>
+    <p>Add text inside the progress bar by placing it as content.</p>
+    <div class="mb-4">
+      <div class="progress">
+        <div class="progress-bar" style="width: 70%" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">70%</div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Right Sidebar -->
+  <aside class="right-sidebar">
+    <h5>On this page</h5>
+    <ul>
+      <li><a href="#how-it-works">How it works</a></li>
+      <li><a href="#bar-sizing">Bar sizing</a></li>
+      <li><a href="#multiple-bars">Multiple bars</a></li>
+      <li><a href="#label">Label</a></li>
+      <li><a href="#animated">Animated</a></li>
+      <li><a href="#striped">Striped</a></li>
+      <li><a href="#contextual">Contextual</a></li>
+    </ul>
+  </aside>
+
+  <!-- Bootstrap JS Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Footer -->
+  <footer class="text-center py-4">
+    © 2025 Your Company. All rights reserved.
+  </footer>
+
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Makassar Coding</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
@@ -19,12 +19,12 @@
         }
 
         nav{
-            background-color: #EBCB90;
-            color: black;
+            background-color: #A8DADC;
+            color: #1D3557;
         }
 
         .nav-link{
-            color: black;
+            color: #1D3557;
         }
 
         .hero{
@@ -59,17 +59,17 @@
           <a class="nav-link " aria-current="page" href="#" class="">Home</a>
         </li>
         <li class="nav-item me-5">
-            <a href="" class="nav-link">Contact</a>
+            <a href="" class="nav-link">Courses</a>
         </li>
         <li class="nav-item me-5">
-            <a href="" class="nav-link">Contact</a>
+            <a href="" class="nav-link">About</a>
         </li>
       </ul>
       
       <div class="d-flex justify-content-center align-items-center" role="search">
           <div>
             <form class="d-flex" role="search">
-              <button type="button" class="btn btn-outline-success bg-success text-white" data-bs-toggle="modal" data-bs-target="#modalLogin">Login</button>
+              <button type="button" class="btn btn-outline-success bg-success text-white" id="authButton">Login</button>
           </div>
           <div>
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
@@ -131,46 +131,6 @@
             </div>
         </div>
     </div>
-    
-
-
-    <!-- area modal untuk login -->
-<!-- Modal -->
-<div class="modal fade" id="modalLogin" tabindex="-1" aria-labelledby="modalLoginLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="modalLoginLabel">Silahkan Login</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form>
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
-            </div>
-            <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Check me out</label>
-            </div>
-        </form>
-        <p>Lupa Password? <a href="">Silahkan Reset Disini</a></p>
-        <p>Telah Memiliki Akun? <a href="">Klik Disini</a></p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-</div>
 </div>
 
 <div class="container">
@@ -192,17 +152,12 @@
 </svg>
 </div>
 
-<!-- <div class="container" id="liveAlertPlaceholder"></div>
-<button type="button" class="btn btn-primary" id="liveAlertBtn">Show live alert</button> -->
-
-
-
 <!-- Footer -->
 <footer class="container rounded bg-dark text-white text-center py-4 mt-5">
   <div class="container">
     <div class="row">
       <div class="col-md-4">
-        <h5>Makassar Coding</h5>
+        <h5>Maros Coding</h5>
         <p>Platform belajar coding terbaik di Makassar</p>
       </div>
       <div class="col-md-4">
@@ -224,6 +179,27 @@
     <p class="mb-0">&copy; 2025 Makassar Coding. All rights reserved.</p>
   </div>
 <script src="./script.js"></script>
+<script>
+  // Check login status and update UI
+  document.addEventListener('DOMContentLoaded', function() {
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    const authButton = document.getElementById('authButton');
+    
+    if (currentUser) {
+      // User is logged in
+      authButton.textContent = 'Dashboard';
+      authButton.onclick = function() {
+        window.location.href = 'dashboard.html';
+      };
+    } else {
+      // User is not logged in
+      authButton.textContent = 'Login';
+      authButton.onclick = function() {
+        window.location.href = 'login.html';
+      };
+    }
+  });
+</script>
 </footer>
 </body>
 </html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Registration</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Roboto', sans-serif;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .form-container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 100%;
+            max-width: 450px;
+        }
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .logo img {
+            width: 100px;
+            height: auto;
+        }
+        .form-toggle {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 25px;
+            border-bottom: 1px solid #dee2e6;
+        }
+        .toggle-btn {
+            padding: 10px 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            color: #6c757d;
+            position: relative;
+        }
+        .toggle-btn.active {
+            color: #0d6efd;
+            font-weight: 600;
+        }
+        .toggle-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: #0d6efd;
+        }
+        .form-section {
+            display: none;
+        }
+        .form-section.active {
+            display: block;
+        }
+        .alert {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <div class="logo">
+            <h2><i class="bi bi-person-circle"></i> Makassar Coding</h2>
+        </div>
+        
+        <div class="form-toggle">
+            <button class="toggle-btn active" data-target="login">Login</button>
+            <button class="toggle-btn" data-target="register">Register</button>
+        </div>
+        
+        <div id="alert-container" class="alert" role="alert"></div>
+        
+        <!-- Login Form -->
+        <div id="login-form" class="form-section active">
+            <h3 class="text-center mb-4">Login to Your Account</h3>
+            <form id="loginForm">
+                <div class="mb-3">
+                    <label for="loginUsername" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="loginUsername" required>
+                </div>
+                <div class="mb-3">
+                    <label for="loginPassword" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="loginPassword" required>
+                </div>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="rememberMe">
+                    <label class="form-check-label" for="rememberMe">Remember me</label>
+                </div>
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </div>
+            </form>
+            <div class="text-center mt-3">
+                <a href="#" id="forgotPassword">Forgot Password?</a>
+            </div>
+        </div>
+        
+        <!-- Registration Form -->
+        <div id="register-form" class="form-section">
+            <h3 class="text-center mb-4">Create New Account</h3>
+            <form id="registerForm">
+                <div class="mb-3">
+                    <label for="registerName" class="form-label">Full Name</label>
+                    <input type="text" class="form-control" id="registerName" required>
+                </div>
+                <div class="mb-3">
+                    <label for="registerUsername" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="registerUsername" required>
+                </div>
+                <div class="mb-3">
+                    <label for="registerEmail" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="registerEmail" required>
+                </div>
+                <div class="mb-3">
+                    <label for="registerPassword" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="registerPassword" required>
+                </div>
+                <div class="mb-3">
+                    <label for="registerConfirmPassword" class="form-label">Confirm Password</label>
+                    <input type="password" class="form-control" id="registerConfirmPassword" required>
+                </div>
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-success">Register</button>
+                </div>
+            </form>
+        </div>
+        
+        <div class="text-center mt-4">
+            <p class="mb-0">Admin account: username "admin" and password "admin"</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Toggle between login and register forms
+        document.querySelectorAll('.toggle-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                document.querySelectorAll('.toggle-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                // Hide all form sections
+                document.querySelectorAll('.form-section').forEach(section => {
+                    section.classList.remove('active');
+                });
+                
+                // Show the target form section
+                const target = this.getAttribute('data-target');
+                document.getElementById(target + '-form').classList.add('active');
+                
+                // Clear any alerts
+                document.getElementById('alert-container').style.display = 'none';
+            });
+        });
+        
+        // Initialize with admin user if not exists
+        function initializeAdminUser() {
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            
+            // Check if admin user already exists
+            const adminExists = users.some(user => user.username === 'admin');
+            
+            // If admin doesn't exist, create it
+            if (!adminExists) {
+                users.push({
+                    name: 'Administrator',
+                    username: 'admin',
+                    email: 'admin@makassarcoding.com',
+                    password: 'admin' // In a real app, this should be hashed
+                });
+                
+                localStorage.setItem('users', JSON.stringify(users));
+                console.log('Admin user created');
+            }
+        }
+        
+        // Login form submission
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('loginUsername').value;
+            const password = document.getElementById('loginPassword').value;
+            
+            // Get users from localStorage
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            
+            // Find user
+            const user = users.find(u => u.username === username && u.password === password);
+            
+            const alertContainer = document.getElementById('alert-container');
+            
+            if (user) {
+                // Login successful
+                alertContainer.className = 'alert alert-success';
+                alertContainer.textContent = 'Login successful! Redirecting...';
+                alertContainer.style.display = 'block';
+                
+                // Store current user
+                localStorage.setItem('currentUser', JSON.stringify(user));
+                
+                // Redirect after short delay
+                setTimeout(() => {
+                    window.location.href = 'dashboard.html';
+                }, 1500);
+            } else {
+                // Login failed
+                alertContainer.className = 'alert alert-danger';
+                alertContainer.textContent = 'Invalid username or password!';
+                alertContainer.style.display = 'block';
+            }
+        });
+        
+        // Registration form submission
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('registerName').value;
+            const username = document.getElementById('registerUsername').value;
+            const email = document.getElementById('registerEmail').value;
+            const password = document.getElementById('registerPassword').value;
+            const confirmPassword = document.getElementById('registerConfirmPassword').value;
+            
+            const alertContainer = document.getElementById('alert-container');
+            
+            // Check if passwords match
+            if (password !== confirmPassword) {
+                alertContainer.className = 'alert alert-danger';
+                alertContainer.textContent = 'Passwords do not match!';
+                alertContainer.style.display = 'block';
+                return;
+            }
+            
+            // Get existing users
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            
+            // Check if username already exists
+            const userExists = users.some(u => u.username === username);
+            
+            if (userExists) {
+                alertContainer.className = 'alert alert-danger';
+                alertContainer.textContent = 'Username already exists!';
+                alertContainer.style.display = 'block';
+                return;
+            }
+            
+            // Add new user
+            users.push({
+                name: name,
+                username: username,
+                email: email,
+                password: password // In a real app, this should be hashed
+            });
+            
+            // Save to localStorage
+            localStorage.setItem('users', JSON.stringify(users));
+            
+            // Show success message
+            alertContainer.className = 'alert alert-success';
+            alertContainer.textContent = 'Registration successful! You can now login.';
+            alertContainer.style.display = 'block';
+            
+            // Reset form
+            document.getElementById('registerForm').reset();
+            
+            // Switch to login form
+            setTimeout(() => {
+                document.querySelectorAll('.toggle-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                document.querySelector('.toggle-btn[data-target="login"]').classList.add('active');
+                
+                document.querySelectorAll('.form-section').forEach(section => {
+                    section.classList.remove('active');
+                });
+                document.getElementById('login-form').classList.add('active');
+            }, 2000);
+        });
+        
+        // Initialize admin user when page loads
+        initializeAdminUser();
+    </script>
+</body>
+</html>
