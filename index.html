@@ -4,8 +4,226 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <style>
+        body{
+            height: 1000vh;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        nav{
+            background-color: #EBCB90;
+            color: black;
+        }
+
+        .nav-link{
+            color: black;
+        }
+
+        .hero{
+            height: 60vh;
+            background-color: #dfa944;
+        }
+
+        .card-bg{
+            background-color: #dfa944;
+        }
+
+    </style>
 </head>
 <body>
-    <h1>Testing Github</h1>
+<nav class="navbar mt-5 container navbar-expand-lg sticky-top text-dark rounded" data-bs-theme="dark">
+<!-- <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark container fixed-top" data-bs-theme="dark"> -->
+  <div class="container d-flex">  
+      <!-- bagian 1 logo  -->
+    <div class="d-flex">
+        <a href=""><img src="./logo.png" alt="" width="150"></a>
+    </div>
+
+    <!-- menampilkan menu via mobile / repsonsive -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="#menu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- bagian 2 menu list tengah -->
+    <div class="collapse navbar-collapse text-dark" id="menu">
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+        <li class="nav-item me-5">
+          <a class="nav-link " aria-current="page" href="#" class="">Home</a>
+        </li>
+        <li class="nav-item me-5">
+            <a href="" class="nav-link">Contact</a>
+        </li>
+        <li class="nav-item me-5">
+            <a href="" class="nav-link">Contact</a>
+        </li>
+      </ul>
+      
+      <div class="d-flex justify-content-center align-items-center" role="search">
+          <div>
+            <form class="d-flex" role="search">
+              <button type="button" class="btn btn-outline-success bg-success text-white" data-bs-toggle="modal" data-bs-target="#modalLogin">Login</button>
+          </div>
+          <div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+ <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
+</svg>
+          </div>
+          </form>
+      </div>
+    </div>
+    <!-- bagian 3 -->
+</nav>
+<div class="mt-5 pt-3"></div>
+<div class="container rounded hero pt-5 mt-5 d-flex flex-column justify-content-center align-items-center">
+    <div class="container text-center">
+        <h1 class="mb-5">Selamat Datang Di Website Makassar Coding</h1>
+        <p class="m-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error non tenetur numquam totam tempora. Quo beatae laudantium quia eveniet nisi debitis in, ipsa est corrupti nobis sequi similique ipsam voluptatem? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque nulla tempora aut commodi voluptatum unde, praesentium saepe veniam! Minus similique, velit consequatur recusandae eveniet vero maxime deleniti dolores deserunt amet.</p>
+        <button type="button" class="btn btn-primary mt-5 px-5">Klik Disini</button>
+    </div>
+</div>
+<h2 class="container text-center mt-5">Course Yang Tersedia</h2>
+<div class="container d-flex justify-content-center align-items-center my-5 gap-5 card-bg p-5">
+    <div>
+        <div class="card">
+            <img src="./img.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Belajar HTML</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="card">
+            <img src="./img.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Belajar CSS</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="card">
+            <img src="./img.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Belajar Boostrap </h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="card">
+            <img src="./img.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Belajar Boostrap </h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+    </div>
+    
+
+
+    <!-- area modal untuk login -->
+<!-- Modal -->
+<div class="modal fade" id="modalLogin" tabindex="-1" aria-labelledby="modalLoginLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="modalLoginLabel">Silahkan Login</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1">
+            </div>
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            </div>
+        </form>
+        <p>Lupa Password? <a href="">Silahkan Reset Disini</a></p>
+        <p>Telah Memiliki Akun? <a href="">Klik Disini</a></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+</div>
+
+<div class="container">
+  <h2>Stats</h2>
+    <div>
+      <h3>Peserta Yang Tersalurkan Kerja setelah mengikuti kursus</h3>
+      <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+      <div class="progress-bar" style="width: 75%"></div>
+    </div>
+    <div>
+      <h3>Peserta Yang Tersalurkan Kerja setelah mengikuti kursus</h3>
+      <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+      <div class="progress-bar" style="width: 80%">80%</div>
+    </div>
+
+    <i class="bi bi-person"></i>
+    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="32" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+  <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
+</svg>
+</div>
+
+<!-- <div class="container" id="liveAlertPlaceholder"></div>
+<button type="button" class="btn btn-primary" id="liveAlertBtn">Show live alert</button> -->
+
+
+
+<!-- Footer -->
+<footer class="container rounded bg-dark text-white text-center py-4 mt-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h5>Makassar Coding</h5>
+        <p>Platform belajar coding terbaik di Makassar</p>
+      </div>
+      <div class="col-md-4">
+        <h5>Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-white text-decoration-none">Home</a></li>
+          <li><a href="#" class="text-white text-decoration-none">Courses</a></li>
+          <li><a href="#" class="text-white text-decoration-none">About Us</a></li>
+          <li><a href="#" class="text-white text-decoration-none">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h5>Contact Info</h5>
+        <p>Email: info@makassarcoding.com</p>
+        <p>Phone: +62 812 3456 7890</p>
+      </div>
+    </div>
+    <hr class="my-4">
+    <p class="mb-0">&copy; 2025 Makassar Coding. All rights reserved.</p>
+  </div>
+<script src="./script.js"></script>
+</footer>
 </body>
 </html>
