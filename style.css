@@ -6,5 +6,6 @@ button a {
 @media (max-width: 500px) {
   .card1 {
     margin-bottom: 50px;
+    a
   }
 }
