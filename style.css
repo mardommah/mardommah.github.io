@@ -1,0 +1,10 @@
+button a {
+  color: white;
+  text-decoration: none;
+}
+
+@media (max-width: 500px) {
+  .card1 {
+    margin-bottom: 50px;
+  }
+}
