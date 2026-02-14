@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- load code bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+
+    <!-- kombinasi script css & boostrap -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<!-- container berfungsi mengatur width / lebar komponen / view browser -->
+
+<body class="container">
+    <h1>Test Bootstrap</h1>
+
+    <div class="container text-center border">
+        <div class="row">
+            <div class="col-10 border">
+                <h1>Testing</h1>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex corporis nam ullam, laudantium debitis
+                    molestias. Dignissimos ducimus enim cupiditate eaque non impedit incidunt odit? Corrupti vitae
+                    maxime aperiam a consectetur.</p>
+            </div>
+            <div class="col-2 border">
+                <h1>Daftar Link</h1>
+                <li><a href="">Google</a></li>
+                <li><a href="">Faccebook</a></li>
+            </div>
+        </div>
+    </div>
+
+    <!-- text display -->
+    <h1 class="display-1 text-start">Display 1</h1>
+
+    <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, repudiandae asperiores, aut alias
+        laudantium incidunt dignissimos atque nisi sint nostrum aperiam et, commodi inventore aliquam porro ipsa
+        recusandae qui ab.</p>
+
+    <div class="btn btn-primary">Hubungi Kami</div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Nilai</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="table-danger">
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>50</td>
+            </tr>
+            <tr class="table-primary">
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>85</td>
+            </tr>
+            <tr class="table-success">
+                <th scope="row">3</th>
+                <td>John</td>
+                <td>Doe</td>
+                <td>100</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Login</h2>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Password</label>
+        <input type="password" class="form-control" id="exampleFormControlTextarea1" placeholder="Masukkan Password"></textarea>
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,13 @@
+/* body{
+    background-image: url("../latihan_html/kucing2.jpg");
+    background-repeat: no-repeat;
+    background-color: #eaeaea;
+} */
+
+body::before{
+    opacity: 0.5;
+}
+
+li {
+    list-style-type: none;
+}
