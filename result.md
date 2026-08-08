@@ -27,5 +27,21 @@
    - Menginisialisasi 2 grafik Chart.js (Grafik Registrasi Pasien & Distribusi Spesialisasi Dokter).
    - Membuat fungsi log dan load aktivitas terbaru pada dashboard.
 
+## ✅ Fase 3: CRUD Pasien & Dokter (Selesai)
+
+### Yang telah diselesaikan:
+1. **Manajemen Pasien (`pages/pasien.html` & `js/pasien.js`)**
+   - Halaman tabel data pasien dengan fitur pencarian real-time (berdasarkan nama dan No. RM).
+   - Modal Form CRUD untuk Tambah dan Edit pasien.
+   - Fitur hapus data pasien dengan konfirmasi.
+   - Auto-generate nomor Rekam Medis (RM-XXX).
+   - Menyambungkan log aktivitas saat melakukan aksi CRUD.
+
+2. **Manajemen Dokter (`pages/dokter.html` & `js/dokter.js`)**
+   - Halaman tabel data dokter dengan filter pencarian real-time (nama dan spesialisasi).
+   - Modal Form CRUD untuk Tambah dan Edit dokter (pilihan spesialisasi: Umum, Penyakit Dalam, Anak, Bedah, dll.).
+   - Status dokter (Aktif, Cuti, Non-aktif) dengan visualisasi badge Bootstrap yang dinamis.
+   - Menyambungkan log aktivitas saat melakukan aksi CRUD.
+
 ### Langkah Selanjutnya:
-Sistem siap dilanjutkan ke **Fase 3: CRUD Pasien & Dokter** (Fase 2 Dashboard telah dirangkap di Fase 1), yang akan meliputi pembuatan halaman `pasien.html`, `dokter.html`, beserta logika javascript-nya.
+Sistem siap dilanjutkan ke **Fase 4: Jadwal & Rawat Inap**, yang akan merelasikan data dokter dan pasien ke modul jadwal praktek dan pendaftaran rawat inap.
