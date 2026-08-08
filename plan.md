@@ -119,9 +119,36 @@
 
 ---
 
+## Responsive Design & Mobile-First Approach
+
+### Breakpoints & Layout Strategy
+- **Mobile (< 768px)**: Sidebar collapse ke offcanvas/toggle, layout single column, table scroll horizontal
+- **Tablet (768px - 1024px)**: Sidebar tetap visible (fixed), grid 2 kolom untuk cards, table responsive
+- **Desktop (> 1024px)**: Sidebar fixed, full layout, grid responsive 4 kolom untuk statistik
+
+### Implementasi Responsive
+1. **Bootstrap 5 Grid System**: Menggunakan `col-lg-6`, `col-md-6`, `col-sm-12` untuk adaptive layout
+2. **Responsive Tables**: Wrapper `.table-responsive` untuk scroll horizontal di perangkat kecil
+3. **Sidebar Toggle**: Sidebar otomatis collapse di mobile, button toggle tersedia
+4. **Form Modal**: Modal `modal-dialog` responsive, form field stack vertical di mobile
+5. **Spacing & Padding**: Menggunakan Bootstrap utilities (`p-3`, `p-md-4`, `px-sm-2`) untuk adaptif spacing
+6. **Icons & Typography**: Font scaling via Bootstrap (`fs-1` hingga `fs-6`), icon size adjust per device
+7. **Search Box**: Max-width constraint untuk desktop, full-width di mobile
+8. **Action Buttons**: Button size responsive, group vertical di mobile (flex-column)
+
+### Testing Checklist
+- ✅ Mobile (375px - 480px): iPhone/Android
+- ✅ Tablet (768px - 1024px): iPad, tablet Android
+- ✅ Desktop (1920px+): Monitor standar
+- ✅ Landscape & Portrait orientation
+- ✅ Touch interaction: modal, buttons, form input
+
+---
+
 ## Catatan Teknis
 - Semua data disimpan di **LocalStorage** (tidak ada backend)
 - Setiap entitas punya ID unik (generated via `Date.now()` atau `crypto.randomUUID()`)
 - Navigasi antar halaman menggunakan link biasa (multi-page)
 - Bootstrap 5 CDN untuk UI components (modal, table, card, navbar)
 - Chart.js CDN untuk grafik di dashboard
+- CSS media queries custom di `css/style.css` untuk refinement responsive

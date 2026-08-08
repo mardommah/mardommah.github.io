@@ -43,15 +43,21 @@ function initStorage() {
 // Sidebar toggle handler
 document.addEventListener("DOMContentLoaded", () => {
     initStorage();
+    createSidebarOverlay();
     
     const sidebarToggle = document.getElementById("sidebarToggle");
-    if (sidebarToggle) {
+    const wrapper = document.getElementById("wrapper");
+    
+    if (sidebarToggle && wrapper) {
         sidebarToggle.addEventListener("click", event => {
             event.preventDefault();
-            document.body.classList.toggle("sb-sidenav-toggled");
-            document.getElementById("wrapper").classList.toggle("toggled");
+            wrapper.classList.toggle("toggled");
+            toggleOverlay(wrapper.classList.contains("toggled"));
         });
     }
+
+    window.addEventListener("resize", handleResize);
+    handleResize();
 
     // Only run dashboard logic on dashboard page (index.html)
     if (document.getElementById("totalPasien")) {
@@ -60,6 +66,40 @@ document.addEventListener("DOMContentLoaded", () => {
         loadRecentActivities();
     }
 });
+
+function createSidebarOverlay() {
+    if (document.getElementById("sidebarOverlay")) return;
+    const overlay = document.createElement("div");
+    overlay.id = "sidebarOverlay";
+    overlay.className = "sidebar-overlay";
+    overlay.addEventListener("click", () => {
+        const wrapper = document.getElementById("wrapper");
+        wrapper.classList.remove("toggled");
+        toggleOverlay(false);
+    });
+    document.body.appendChild(overlay);
+}
+
+function toggleOverlay(show) {
+    const overlay = document.getElementById("sidebarOverlay");
+    if (!overlay) return;
+    if (window.innerWidth < 992 && show) {
+        overlay.classList.add("show");
+    } else {
+        overlay.classList.remove("show");
+    }
+}
+
+function handleResize() {
+    const wrapper = document.getElementById("wrapper");
+    const overlay = document.getElementById("sidebarOverlay");
+    if (!wrapper) return;
+    
+    if (window.innerWidth >= 992) {
+        wrapper.classList.remove("toggled");
+        if (overlay) overlay.classList.remove("show");
+    }
+}
 
 // Load statistics count
 function loadDashboardStats() {
