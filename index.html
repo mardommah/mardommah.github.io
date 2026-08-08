@@ -1,14 +1,191 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dashboard - Sistem Manajemen Rumah Sakit</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Test Github</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, modi dignissimos! Sint eveniet incidunt voluptates nemo autem hic error molestias quis fugit iusto! Laborum delectus sequi, illo sit doloribus adipisci?</p>
+    <div class="d-flex" id="wrapper">
+        <div class="bg-dark text-white" id="sidebar-wrapper">
+            <div class="sidebar-heading text-center py-4 fs-4 fw-bold border-bottom">
+                <i class="bi bi-hospital"></i> RS Sehat
+            </div>
+            <div class="list-group list-group-flush">
+                <a href="index.html" class="list-group-item list-group-item-action bg-dark text-white active">
+                    <i class="bi bi-speedometer2"></i> Dashboard
+                </a>
+                <a href="pages/pasien.html" class="list-group-item list-group-item-action bg-dark text-white">
+                    <i class="bi bi-people"></i> Pasien
+                </a>
+                <a href="pages/dokter.html" class="list-group-item list-group-item-action bg-dark text-white">
+                    <i class="bi bi-person-badge"></i> Dokter
+                </a>
+                <a href="pages/jadwal.html" class="list-group-item list-group-item-action bg-dark text-white">
+                    <i class="bi bi-calendar-week"></i> Jadwal Praktek
+                </a>
+                <a href="pages/rawat-inap.html" class="list-group-item list-group-item-action bg-dark text-white">
+                    <i class="bi bi-hospital-fill"></i> Rawat Inap
+                </a>
+                <a href="pages/rekam-medis.html" class="list-group-item list-group-item-action bg-dark text-white">
+                    <i class="bi bi-file-medical"></i> Rekam Medis
+                </a>
+                <a href="pages/laporan.html" class="list-group-item list-group-item-action bg-dark text-white">
+                    <i class="bi bi-bar-chart"></i> Laporan
+                </a>
+            </div>
+        </div>
+
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                <div class="container-fluid">
+                    <button class="btn btn-dark" id="sidebarToggle">
+                        <i class="bi bi-list"></i>
+                    </button>
+                    <span class="ms-3 fw-bold">Dashboard</span>
+                    <div class="ms-auto">
+                        <span class="me-3"><i class="bi bi-person-circle"></i> Admin</span>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="container-fluid p-4">
+                <div class="row mb-4">
+                    <div class="col-xl-3 col-md-6 mb-3">
+                        <div class="card border-left-primary shadow h-100">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            Total Pasien
+                                        </div>
+                                        <div class="h5 mb-0 font-weight-bold" id="totalPasien">0</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="bi bi-people fs-2 text-primary"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-md-6 mb-3">
+                        <div class="card border-left-success shadow h-100">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                            Total Dokter
+                                        </div>
+                                        <div class="h5 mb-0 font-weight-bold" id="totalDokter">0</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="bi bi-person-badge fs-2 text-success"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-md-6 mb-3">
+                        <div class="card border-left-warning shadow h-100">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                            Rawat Inap Aktif
+                                        </div>
+                                        <div class="h5 mb-0 font-weight-bold" id="totalRawatInap">0</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="bi bi-hospital-fill fs-2 text-warning"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-md-6 mb-3">
+                        <div class="card border-left-info shadow h-100">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                                            Jadwal Hari Ini
+                                        </div>
+                                        <div class="h5 mb-0 font-weight-bold" id="totalJadwal">0</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="bi bi-calendar-week fs-2 text-info"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-lg-6 mb-3">
+                        <div class="card shadow">
+                            <div class="card-header bg-primary text-white">
+                                <i class="bi bi-bar-chart"></i> Statistik Pasien
+                            </div>
+                            <div class="card-body">
+                                <canvas id="patientChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 mb-3">
+                        <div class="card shadow">
+                            <div class="card-header bg-success text-white">
+                                <i class="bi bi-pie-chart"></i> Distribusi Spesialisasi
+                            </div>
+                            <div class="card-body">
+                                <canvas id="specialtyChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card shadow">
+                            <div class="card-header bg-dark text-white">
+                                <i class="bi bi-clock-history"></i> Aktivitas Terbaru
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-hover" id="activityTable">
+                                        <thead>
+                                            <tr>
+                                                <th>Waktu</th>
+                                                <th>Pasien</th>
+                                                <th>Dokter</th>
+                                                <th>Aktivitas</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="activityBody">
+                                            <tr>
+                                                <td colspan="5" class="text-center text-muted">Belum ada aktivitas</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz4YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>
